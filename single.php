@@ -154,7 +154,7 @@
 
                                         <?php
 
-                                        wp_reset_postdata();
+                                        
 
                                     }
                                     ?>
@@ -178,6 +178,7 @@
                         </div>
                                 <?php
                             }
+                            wp_reset_postdata();
                         }
                         ?>
 
