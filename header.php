@@ -11,9 +11,6 @@
     <?php wp_head();?>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Document Title
-	============================================= -->
-  <title>Index Template</title>
 
 </head>
 
@@ -33,11 +30,18 @@
           <!-- Top Links
           ============================================= -->
           <div class="top-links">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+          <?php 
+
+          if(has_nav_menu('secondary')){
+            wp_nav_menu([
+              'theme_location' => 'secondary',
+              'container' => false,
+              'fallback_cb' => false,
+              'depth' => 1,
+              //Value for walker must be set to a new instance of the Walker class we created 
+              'walker' => new WPT_Custom_Nav_Walker()
+            ]);
+          }?>
           </div><!-- .top-links end -->
 
         </div>
@@ -91,11 +95,28 @@
         <!-- Logo
         ============================================= -->
         <div id="logo">
-          <a href="#" class="standard-logo">Udemy</a>
+        <?php 
+
+        if(has_custom_logo()){
+          the_custom_logo();
+        }
+        else{
+          ?>
+        <a href="<?php echo home_url('/');?>" class="standard-logo"><?php bloginfo('name');?></a>
+
+          <?php 
+        }
+        ?>
         </div><!-- #logo end -->
 
         <div class="top-advert">
-          <img src="images/magazine/ad.jpg">
+
+        <!--Wp Quads Plugin Code-->
+          <?php
+            if(function_exists('quads_ad')){
+             echo  quads_ad(['location' => 'wp_theme_header']);
+            }
+          ?>
         </div>
 
       </div>
@@ -117,7 +138,7 @@
                'theme_location' => 'primary',
                'container' => false,
                'fallback_cb' => false,
-               'debth' => 4,
+               'depth' => 4,
                //Value for walker must be set to a new instance of the Walker class we created 
                'walker' => new WPT_Custom_Nav_Walker()
              ]);
