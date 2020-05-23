@@ -1,29 +1,35 @@
 <?php
 function wpt_social_customizer_section($wp_customize){
-//setting
+
+//Create the Database values using the add_setting() method
+
 $wp_customize->add_setting('wpt_facebook_handle',
-['default' => '']
+    ['default' => '']
 );
 $wp_customize->add_setting('wpt_twitter_handle',
-['default' => '']
+    ['default' => '']
 );
 $wp_customize->add_setting('wpt_instagram_handle',
-['default' => '']
+    ['default' => '']
 );
 $wp_customize->add_setting('wpt_email',
-['default' => '']
+    ['default' => '']
 );
 $wp_customize->add_setting('wpt_phone',
-['default' => '']
+    ['default' => '']
 );
 
-//Section
-$wp_customize->add_section('wpt_social_section', 
-[
-'title' => __('Wordpress Theme Social Settings', 'wp-theme-dev'),
-'priority' => 30,
-]);
+//Create a section that will hold all our controllers
 
+$wp_customize->add_section('wpt_social_section', 
+    [
+    'title' => __('Wordpress Theme Social Settings', 'wp-theme-dev'),
+    'priority' => 30,
+    ]);
+
+
+//Create a controller for each setting
+/**1 Facebook */
 $wp_customize->add_control(
 new Wp_Customize_Control(
 $wp_customize,
@@ -36,7 +42,7 @@ array(
 
 )));
 
-//Controller
+/**2 Twitter */
 $wp_customize->add_control(
 new Wp_Customize_Control(
 $wp_customize,
@@ -49,7 +55,7 @@ array(
 
 )));
 
-
+/**3 Instagram */
 $wp_customize->add_control(
 new Wp_Customize_Control(
 $wp_customize,
@@ -61,7 +67,7 @@ array(
 'type' => 'text'
 )));
 
-
+/**4. Email */
 $wp_customize->add_control(
 new Wp_Customize_Control(
 $wp_customize,
@@ -74,6 +80,7 @@ array(
 
 )));
 
+/**5. Phone Number */
 $wp_customize->add_control(
 new Wp_Customize_Control(
 $wp_customize,

@@ -170,8 +170,14 @@
                'walker' => new WPT_Custom_Nav_Walker()
              ]);
            }?>
-            <!-- Top Cart
+
+
+           <?php if(get_theme_mod('wpt_header_show_cart')){
+
+            ?>
+              <!-- Top Cart
             ============================================= -->
+            
             <div id="top-cart">
               <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
               <div class="top-cart-content">
@@ -208,18 +214,31 @@
                 </div>
               </div>
             </div><!-- #top-cart end -->
+          <?php
 
-            <!-- Top Search
+           }
+           ?>
+            <?php if(get_theme_mod('wpt_header_show_search')){
+              ?>
+                 <!-- Top Search
             ============================================= -->
             <div id="top-search">
               <a href="#" id="top-search-trigger">
                 <i class="icon-search3"></i><i class="icon-line-cross"></i>
               </a>
-              <form action="#" method="get">
-                <input type="text" name="q" class="form-control" placeholder="Type &amp; Hit Enter.." value="">
+              <form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+                <input type="text" name="q" class="form-control" 
+                placeholder="<?php _e('Type &amp; Hit Enter..', 'wp-theme-dev');?>" 
+                value="<?php the_search_query(); ?>">
               </form>
             </div><!-- #top-search end -->
 
+              <?php
+
+            }
+            ?>
+
+           
           </div>
 
         </nav><!-- #primary-menu end -->
