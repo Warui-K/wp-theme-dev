@@ -52,31 +52,58 @@
           ============================================= -->
           <div id="top-social">
             <ul>
+            <?php 
+            if(get_theme_mod('wpt_facebook_handle')){
+              ?>
+
               <li>
-                <a href="#" class="si-facebook">
-                  <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
-                </a>
+              <a href="https://facebook.com/<?php echo get_theme_mod('wpt_facebook_handle');?>" class="si-facebook">
+              <span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span>
+              </a>
               </li>
+              <?php
+
+            }?>
+              <?php 
+            if(get_theme_mod('wpt_twitter_handle')){
+              ?>
               <li>
-                <a href="#" class="si-twitter">
+                <a href="https://twitter.com/<?php echo get_theme_mod('wpt_twitter_handle');?>" class="si-twitter">
                   <span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span>
                 </a>
               </li>
+              <?php
+            }?>
+            <?php 
+            if(get_theme_mod('wpt_instagram_handle')){
+              ?>
               <li>
-                <a href="#" class="si-instagram">
+                <a href="https://instagram.com/<?php echo get_theme_mod('wpt_instagram_handle');?>" class="si-instagram">
                   <span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span>
                 </a>
               </li>
+              <?php
+            }?>
+              <?php 
+            if(get_theme_mod('wpt_phone')){
+              ?>
               <li>
-                <a href="tel:+55.55.5555555" class="si-call">
-                  <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+55.55.5555555</span>
+                <a href="tel:+<?php echo get_theme_mod('wpt_phone');?>" class="si-call">
+                  <span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo get_theme_mod('wpt_phone');?></span>
                 </a>
               </li>
+              <?php
+            }?>
+              <?php 
+            if(get_theme_mod('wpt_email')){
+              ?>
               <li>
-                <a href="mailto:info@email.com" class="si-email3">
-                  <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span>
+                <a href="mailto:<?php echo get_theme_mod('wpt_email');?>" class="si-email3">
+                  <span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo get_theme_mod('wpt_email');?></span>
                 </a>
               </li>
+              <?php
+            }?>
             </ul>
           </div><!-- #top-social end -->
 
