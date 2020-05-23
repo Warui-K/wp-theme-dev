@@ -17,22 +17,51 @@
 
           <div class="col_half col_last tright">
             <div class="fright clearfix">
-              <a href="#" class="social-icon si-small si-borderless si-facebook">
+            <?php 
+            if(get_theme_mod('wpt_facebook_handle')){
+              ?>
+              <a href="https://facebook.com/<?php echo get_theme_mod('wpt_facebook_handle');?>" class="social-icon si-small si-borderless si-facebook">
                 <i class="icon-facebook"></i>
                 <i class="icon-facebook"></i>
               </a>
-
-              <a href="#" class="social-icon si-small si-borderless si-twitter">
+              <?php
+            }?>
+            <?php 
+            if(get_theme_mod('wpt_twitter_handle')){
+              ?>
+              <a href="https://twitter.com/<?php echo get_theme_mod('wpt_twitter_handle');?>" class="social-icon si-small si-borderless si-twitter">
                 <i class="icon-twitter"></i>
                 <i class="icon-twitter"></i>
               </a>
-
+            <?php 
+          }?>
+             <?php 
+            if(get_theme_mod('wpt_instagram_handle')){
+              ?>
+              <a href="https://instagram.com/<?php echo get_theme_mod('wpt_instagram_handle');?>" class="social-icon si-small si-borderless si-instagram">
+                <i class="icon-instagram2"></i>
+                <i class="icon-instagram2"></i>
+              </a>
+            <?php 
+          }?>
             </div>
 
-            <div class="clear"></div>
+            <?php 
+            if(get_theme_mod('wpt_email')){
+              ?>
+              <a href="mailto:<?php echo get_theme_mod('wpt_email');?>" class="si-email3">
+            <i class="icon-envelope2"></i> <?php echo get_theme_mod('wpt_email');?> <span class="middot">&middot;</span>
+            <?php 
+            }?>
 
-            <i class="icon-envelope2"></i> info@email.com <span class="middot">&middot;</span>
-            <i class="icon-headphones"></i> +55-5-5555-5555
+            <?php 
+            if(get_theme_mod('wpt_phone')){
+              ?>
+                <a href="tel:+<?php echo get_theme_mod('wpt_phone');?>" class="si-call">
+
+            <i class="icon-headphones"></i> <?php echo get_theme_mod('wpt_phone');?>
+
+            <?php }?>
           </div>
 
         </div>
