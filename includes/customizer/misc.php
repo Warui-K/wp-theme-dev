@@ -4,12 +4,16 @@ function wpt_misc_customizer_section($wp_customize){
 
 $wp_customize->add_setting('wpt_header_show_search', 
     [
-        'default' => 'yes'
+        'default' => 'yes',
+        //Use custom JavaScript code to reflect the changes on the page
+       // 'transport' => 'postMessage'
     ]);
 
 $wp_customize->add_setting('wpt_header_show_cart', 
 [
-    'default' => 'yes'
+    'default' => 'yes',
+    //'transport' => 'postMessage'
+
 ]);
 
 $wp_customize->add_setting('wpt_footer_copyright_text', 
@@ -32,7 +36,8 @@ $wp_customize->add_setting('wpt_footer_privacy_page',
 $wp_customize->add_section('wpt_misc_section',
     [
         'title' => __('WordPress Theme Misc settings', 'wp-theme-dev'),
-        'priority' => 30
+        'priority' => 30,
+        'panel' => 'wp-theme-dev'
     ]
     );
 
