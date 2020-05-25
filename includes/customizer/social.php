@@ -25,6 +25,8 @@ $wp_customize->add_section('wpt_social_section',
     [
     'title' => __('Wordpress Theme Social Settings', 'wp-theme-dev'),
     'priority' => 30,
+    'panel' => 'wp-theme-dev'
+
     ]);
 
 
