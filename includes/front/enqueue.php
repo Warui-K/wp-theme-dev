@@ -26,6 +26,11 @@ function wpt_enqueue(){
     wp_enqueue_style('wpt_responsive');
     wp_enqueue_style('wpt_custom');
     
+    $read_more_color = get_theme_mod('wpt_read_more_color');
+    wp_add_inline_style(
+        'wpt_custom',
+        'a.more-link{color: '. $read_more_color. '; border-color: '.$read_more_color.';}'
+    );
 
     wp_register_script('wpt_plugins', $uri.'/assets/js/plugins.js', [],$ver, true);
     wp_register_script('wpt_functions', $uri.'/assets/js/functions.js', [],$ver, true);
