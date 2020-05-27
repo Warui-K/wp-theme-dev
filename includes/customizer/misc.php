@@ -31,6 +31,16 @@ $wp_customize->add_setting('wpt_footer_privacy_page',
     'default' => '0'
 ]);
 
+$wp_customize->add_setting('wpt_read_more_color', 
+[
+    'default' => '#1ABC9C'
+]);
+
+$wp_customize->add_setting('wpt_report_file', 
+[
+    'default' => ''
+]);
+
 
 //Create a section that will hold all our controllers
 $wp_customize->add_section('wpt_misc_section',
@@ -108,4 +118,29 @@ $wp_customize->add_control(new WP_Customize_Control(
         'type' => 'dropdown-pages',
     )
     ));
+
+//Read More controller
+$wp_customize->add_control(new WP_Customize_Color_Control(
+    $wp_customize, 
+    'wpt_read_more_color_input',
+
+    array('label' => __('Read More Link Color', 'wp-theme-dev'),
+        'section' => 'wpt_misc_section',
+        'settings' => 'wpt_read_more_color',
+    )
+
+));
+//Upload Control
+
+$wp_customize->add_control(new WP_Customize_Upload_Control(
+    $wp_customize, 
+    'wpt_report_file_input',
+
+    array('label' => __('File Report', 'wp-theme-dev'),
+        'section' => 'wpt_misc_section',
+        'settings' => 'wpt_report_file',
+    )
+
+));
 }
+
