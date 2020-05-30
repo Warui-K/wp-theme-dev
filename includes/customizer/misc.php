@@ -41,6 +41,18 @@ $wp_customize->add_setting('wpt_report_file',
     'default' => ''
 ]);
 
+//Show Popular Posts
+$wp_customize->add_setting('wpt_show_header_popular_posts', 
+[
+    'default' => false
+]);
+
+//Show Popular Posts
+$wp_customize->add_setting('wpt_popular_posts_widget_title', 
+[
+    'default' => 'Popular Posts'
+]);
+
 
 //Create a section that will hold all our controllers
 $wp_customize->add_section('wpt_misc_section',
@@ -142,5 +154,36 @@ $wp_customize->add_control(new WP_Customize_Upload_Control(
     )
 
 ));
-}
 
+//Controller for Popular Posts
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize, 
+    'wpt_show_header_popular_posts_input',
+
+    array('label' => __('Show Header Popular Posts Widget', 'wp-theme-dev'),
+        'section' => 'wpt_misc_section',
+        'settings' => 'wpt_show_header_popular_posts',
+        'type' => 'checkbox',
+        'choices' => [
+            'yes' => __('Yes', 'wp-theme-dev')
+        ]
+    )
+
+));
+
+//Controller for Widget Title Popular Posts
+
+$wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize, 
+    'wpt_popular_posts_widget_title_input',
+
+    array('label' => __('Popular Posts Widget Title', 'wp-theme-dev'),
+        'section' => 'wpt_misc_section',
+        'settings' => 'wpt_popular_posts_widget_title',
+       
+    )
+
+));
+
+}
