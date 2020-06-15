@@ -21,7 +21,8 @@ add_action('customize_register', 'wpt_customize_register');
 //This hook will only run if the customizer is loaded
 //Its purpose is for loading stylesheets and scripts only
 add_action('customize_preview_init', 'wpt_customize_preview_init');
-
+remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+//remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 
 
 //Shortcodes
