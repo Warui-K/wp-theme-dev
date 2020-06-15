@@ -107,6 +107,9 @@ function wpt_setup_theme(){
 
     ]);
 
+    //Woocommerce support
+    add_theme_support('woocommerce');
+
 
     //WP Quads code
     if (function_exists('quads_register_ad')){
